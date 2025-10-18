@@ -230,45 +230,80 @@ const Index = () => {
       </Section>
 
       {/* Contact Section */}
-      <Section id="contact" className="bg-transparent">
-        <SectionTitle className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
-          Contact
-        </SectionTitle>
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="space-y-6">
-            <h3 className="text-xl font-semibold mb-4">Personal Info</h3>
-            <div className="space-y-4">
-              <p className="flex items-center gap-2 hover:text-purple-600 transition-colors text-gray-300">
-                <Mail className="w-5 h-5" /> brindhasuresh031@gmail.com
-              </p>
-              <p className="flex items-center gap-2 hover:text-purple-600 transition-colors text-gray-300">
-                <Phone className="w-5 h-5" /> +98122517784
-              </p>
-              <p className="flex items-center gap-2 hover:text-purple-600 transition-colors text-gray-300">
-                <MapPin className="w-5 h-5" /> Valluvar street S.Papparapatty Attayampatty
-              </p>
-            </div>
-          </div>
-          <form className="space-y-4">
-            <Input
-              placeholder="Your Name"
-              className="transition-all duration-300 focus:ring-2 focus:ring-purple-500 hover:border-purple-400 bg-gray-900 text-white"
+<Section id="contact" className="bg-transparent">
+  <SectionTitle className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
+    Contact
+  </SectionTitle>
+
+  <div className="grid md:grid-cols-2 gap-12">
+    {/* Left Side - Personal Info */}
+    <div className="space-y-6">
+      <h3 className="text-xl font-semibold mb-4">Personal Info</h3>
+      <div className="space-y-4">
+        <p className="flex items-center gap-2 hover:text-purple-600 transition-colors text-gray-300">
+          <Mail className="w-5 h-5" /> brindhasuresh031@gmail.com
+        </p>
+        <p className="flex items-center gap-2 hover:text-purple-600 transition-colors text-gray-300">
+          <Phone className="w-5 h-5" /> +91 98122 51784
+        </p>
+        <p className="flex items-center gap-2 hover:text-purple-600 transition-colors text-gray-300">
+          <MapPin className="w-5 h-5" /> Valluvar Street, S.Papparapatty, Attayampatty
+        </p>
+
+        {/* GitHub & LinkedIn Links */}
+        <div className="flex items-center gap-4 mt-6">
+          <a
+            href="https://github.com/Brindha122"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-gray-300 hover:text-purple-500 transition-colors"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+              alt="GitHub"
+              className="w-6 h-6"
             />
-            <Input
-              type="email"
-              placeholder="Your Email"
-              className="transition-all duration-300 focus:ring-2 focus:ring-purple-500 hover:border-purple-400 bg-gray-900 text-white"
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/brindha-suresh-5a238b290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-gray-300 hover:text-purple-500 transition-colors"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+              alt="LinkedIn"
+              className="w-6 h-6"
             />
-            <Textarea
-              placeholder="Your Message"
-              className="h-32 transition-all duration-300 focus:ring-2 focus:ring-purple-500 hover:border-purple-400 bg-gray-900 text-white"
-            />
-            <Button className="w-full bg-purple-600 hover:bg-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-purple-500/25">
-              Send Message
-            </Button>
-          </form>
+            LinkedIn
+          </a>
         </div>
-      </Section>
+      </div>
+    </div>
+
+    {/* Right Side - Contact Form */}
+    <form className="space-y-4">
+      <Input
+        placeholder="Your Name"
+        className="transition-all duration-300 focus:ring-2 focus:ring-purple-500 hover:border-purple-400 bg-gray-900 text-white"
+      />
+      <Input
+        type="email"
+        placeholder="Your Email"
+        className="transition-all duration-300 focus:ring-2 focus:ring-purple-500 hover:border-purple-400 bg-gray-900 text-white"
+      />
+      <Textarea
+        placeholder="Your Message"
+        className="h-32 transition-all duration-300 focus:ring-2 focus:ring-purple-500 hover:border-purple-400 bg-gray-900 text-white"
+      />
+      <Button className="w-full bg-purple-600 hover:bg-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-purple-500/25">
+        Send Message
+      </Button>
+    </form>
+  </div>
+</Section>
+
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-8 px-4">
