@@ -16,7 +16,7 @@ const Index = () => {
     { name: "CSS", level: 80 },
     { name: "Java Script", level: 80 },
     { name: "ReactJs", level: 80 },
-    { name: "NextJs", level: 80 },
+    { name: "SQL", level: 80 },
   ];
 
   const projects = [
@@ -38,6 +38,19 @@ const Index = () => {
       "QuickCourt is an AI-powered platform for booking sports courts instantly. It allows users to browse available courts, book slots in real-time, and receive instant confirmations with smooth UI and secure payment integration.",
     image: "/lovable-uploads/QuickCourt.jpg", 
   },
+  {
+  title: "Student Performance Prediction",
+  description:
+    "This project predicts student academic performance using Machine Learning models. The system analyzes factors like study hours, attendance, previous marks, and assignment scores to estimate final performance. I used Python with Pandas and NumPy for data preprocessing and trained an ML model using Scikit-learn to make predictions. The model helps educators identify students who need support and improve academic outcomes through data-driven insights.",
+  image: "/lovable-uploads/student-ml.jpg",
+
+  },
+  {
+  title: "CS Mentor Chatbot",
+  description:
+    "CS Mentor is an AI-powered chatbot designed to answer computer science related questions and assist students in learning programming concepts. The chatbot uses the Mistral Large Language Model through API integration to generate intelligent responses. It can explain topics, guide users through programming problems, and provide quick learning support. The system is integrated with a web interface and processes user queries in real time using modern AI APIs.",
+  image: "/lovable-uploads/cs-mentor.jpg",
+},
   ];
 
   return (
