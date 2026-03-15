@@ -8,17 +8,49 @@ import SectionTitle from "@/components/SectionTitle";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { motion } from "framer-motion"; 
+import { FaJava, FaHtml5, FaCss3Alt, FaReact, FaDatabase, FaGitAlt, FaFigma } from "react-icons/fa";
+import { IoLogoJavascript, IoLogoGithub } from "react-icons/io";
+import { SiPython,  SiCanva } from "react-icons/si";
+import { BsFileEarmarkExcel } from "react-icons/bs";
+
+
 
 const Index = () => {
-  const skills = [
-    { name: "Java", level: 85 },
-    { name: "HTML", level: 85 },
-    { name: "CSS", level: 80 },
-    { name: "Java Script", level: 80 },
-    { name: "ReactJs", level: 80 },
-    { name: "SQL", level: 80 },
-  ];
-
+ const skillCategories = [
+  {
+    title: "Programming Languages",
+    skills: [
+      { name: "Java", icon: <FaJava /> },
+      { name: "Python", icon: <SiPython /> },
+    ],
+  },
+  {
+    title: "Frontend Technologies",
+    skills: [
+      { name: "React JS", icon: <FaReact /> },
+      { name: "HTML", icon: <FaHtml5 /> },
+      { name: "CSS", icon: <FaCss3Alt /> },
+      { name: "JavaScript", icon: <IoLogoJavascript /> },
+    ],
+  },
+  {
+    title: "Data Analytics",
+    skills: [
+      { name: "Excel", icon: <BsFileEarmarkExcel /> },
+      { name: "Power BI", icon: <FaDatabase /> },
+      { name: "SQL", icon: <FaDatabase /> },
+    ],
+  },
+  {
+    title: "Tools",
+    skills: [
+      { name: "Git", icon: <FaGitAlt /> },
+      { name: "GitHub", icon: <IoLogoGithub /> },
+      { name: "Figma", icon: <FaFigma /> },
+      { name: "Canva", icon: <SiCanva /> },
+    ],
+  },
+];
   const projects = [
     {
       title: "Automatic LED On/Off",
@@ -41,15 +73,27 @@ const Index = () => {
   {
   title: "Student Performance Prediction",
   description:
-    "This project predicts student academic performance using Machine Learning models. The system analyzes factors like study hours, attendance, previous marks, and assignment scores to estimate final performance. I used Python with Pandas and NumPy for data preprocessing and trained an ML model using Scikit-learn to make predictions. The model helps educators identify students who need support and improve academic outcomes through data-driven insights.",
+    "This project predicts student academic performance using Machine Learning models. The system analyzes factors like study hours, attendance, previous marks, and assignment scores to estimate final performance. I used Python with Pandas and NumPy for data preprocessing and trained an ML model using Scikit-learn to make predictions. ",
   image: "/lovable-uploads/student-ml.jpg",
 
   },
   {
   title: "CS Mentor Chatbot",
   description:
-    "CS Mentor is an AI-powered chatbot designed to answer computer science related questions and assist students in learning programming concepts. The chatbot uses the Mistral Large Language Model through API integration to generate intelligent responses. It can explain topics, guide users through programming problems, and provide quick learning support. The system is integrated with a web interface and processes user queries in real time using modern AI APIs.",
+    "CS Mentor is an AI-powered chatbot designed to answer computer science related questions and assist students in learning programming concepts. The chatbot uses the Mistral Large Language Model through API integration to generate intelligent responses.",
   image: "/lovable-uploads/cs-mentor.jpg",
+},
+{
+  title: "KFC & Donut Sales Dashboard",
+  description:
+    "This data analytics project focuses on analyzing sales performance of KFC and Donut products using Power BI. I created interactive dashboards with pie charts, panels, and funnel charts to visualize business insights, identify trends, and support data-driven decision making.",
+  image: "/lovable-uploads/kfc-donut.jpg",
+},
+{
+  title: "Weather & Pollen Prediction",
+  description:
+    "This machine learning project predicts pollen count based on weather parameters such as temperature, humidity, precipitation, wind speed, pressure, and visibility. I used Python with Pandas and Scikit-learn to build a predictive model that provides seasonal insights and environmental data analysis.",
+  image: "/lovable-uploads/pollen.jpg",
 },
   ];
 
@@ -61,7 +105,7 @@ const Index = () => {
           <div className="w-48 h-48 relative group">
             <Avatar className="w-full h-full">
               <AvatarImage
-                src="/lovable-uploads/1a6a501d-4d46-42dc-913e-fb46ec6ce1a4.png"
+                src="/lovable-uploads/me.jpg"
                 alt="Brindha S"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
@@ -153,7 +197,7 @@ const Index = () => {
                   <CardContent>
                     <p className="text-gray-300 text-sm leading-relaxed">
                       Year: 2022 – 2023 <br />
-                      Focused on Computer Physics, Chemistry and Mathematics, where I developed my passion for programming.
+                      Focused on Physics, Chemistry and Mathematics, where I developed my passion for programming.
                     </p>
                   </CardContent>
                 </Card>
@@ -186,34 +230,36 @@ const Index = () => {
           </div>
         </div>
       </Section>
+<section className="max-w-6xl mx-auto px-6">
+  <h2 className="text-3xl font-bold text-center mb-10 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+    Skills
+  </h2>
 
-      {/* Skills Section */}
-      <Section id="skills" className="bg-transparent">
-        <SectionTitle className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
-          Skills
-        </SectionTitle>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skills.map((skill) => (
-            <Card
-              key={skill.name}
-              className="transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 bg-black"
+  <div className="grid md:grid-cols-2 gap-8">
+    {skillCategories.map((category, i) => (
+      <div
+        key={i}
+        className="bg-black border border-purple-500/20 rounded-xl p-6 hover:shadow-lg hover:shadow-purple-500/30 transition"
+      >
+        <h3 className="text-xl font-semibold text-purple-400 mb-4">
+          {category.title}
+        </h3>
+
+        <div className="grid grid-cols-2 gap-4">
+          {category.skills.map((skill, j) => (
+            <div
+              key={j}
+              className="flex items-center gap-3 bg-gray-900 p-3 rounded-lg hover:bg-gray-800 transition"
             >
-              <CardHeader>
-                <CardTitle className="text-lg text-white">{skill.name}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="w-full bg-gray-800 rounded-full h-2.5 overflow-hidden">
-                  <div
-                    className="bg-gradient-to-r from-purple-600 to-pink-600 h-2.5 rounded-full transition-all duration-1000"
-                    style={{ width: `${skill.level}%` }}
-                  ></div>
-                </div>
-              </CardContent>
-            </Card>
+              <span className="text-purple-400 text-xl">{skill.icon}</span>
+              <span className="text-gray-300">{skill.name}</span>
+            </div>
           ))}
         </div>
-      </Section>
-
+      </div>
+    ))}
+  </div>
+</section>
       {/* Projects Section */}
       <Section id="projects" className="bg-transparent">
         <SectionTitle>Projects</SectionTitle>
@@ -241,6 +287,203 @@ const Index = () => {
           ))}
         </div>
       </Section>
+     {/* Achievements Section */}
+<Section id="achievements" className="bg-transparent">
+  <SectionTitle className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
+    Achievements & Certificates
+  </SectionTitle>
+
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    {/* Technical Quiz Certificate */}
+    <Card className="bg-black overflow-hidden hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
+      
+      <div className="h-48 overflow-hidden">
+        <img
+          src="/lovable-uploads/quiz-certificate.jpg"
+          alt="Technical Quiz Certificate"
+          className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+        />
+      </div>
+
+      <CardHeader>
+        <CardTitle className="text-purple-400">
+          TECHNICAL QUIZ
+        </CardTitle>
+        <CardDescription className="text-gray-400">
+          KIT COLLEGE OF ENGINEERING, COIMBATORE
+        </CardDescription>
+      </CardHeader>
+
+      <CardContent>
+        <p className="text-gray-300 text-sm">
+          Participated in Technical Quiz competition and demonstrated strong problem solving skills in programming and technology concepts.
+        </p>
+      </CardContent>
+    </Card>
+
+
+    {/* Paper Presentation Certificate */}
+    <Card className="bg-black overflow-hidden hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
+
+      <div className="h-48 overflow-hidden">
+        <img
+          src="/lovable-uploads/paper-presentation.jpg"
+          alt="Paper Presentation Certificate"
+          className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+        />
+      </div>
+
+      <CardHeader>
+        <CardTitle className="text-purple-400">
+          PAPER PRESENTATION
+        </CardTitle>
+        <CardDescription className="text-gray-400">
+          KARPAGAM COLLEGE OF ENGINEERING, COIMBATORE 
+        </CardDescription>
+      </CardHeader>
+
+      <CardContent>
+        <p className="text-gray-300 text-sm">
+          Presented a technical paper on innovative technology topics and gained experience in research and public presentation.
+        </p>
+      </CardContent>
+    </Card>
+
+
+   
+    <Card className="bg-black overflow-hidden hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
+
+      <div className="h-48 overflow-hidden">
+        <img
+          src="/lovable-uploads/conference-certificate.jpg"
+          alt="Conference Certificate"
+          className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+        />
+      </div>
+
+      <CardHeader>
+        <CardTitle className="text-purple-400">
+          CONFERENCE
+        </CardTitle>
+        <CardDescription className="text-gray-400">
+          AL-AMEEN ENGINEERING COLLEGE, ERODE
+        </CardDescription>
+      </CardHeader>
+
+      <CardContent>
+        <p className="text-gray-300 text-sm">
+          Hybrid sustainable medical waste management system: A sustainable approach for medical waste recycling 
+        </p>
+      </CardContent>
+    </Card>
+    <Card className="bg-black overflow-hidden hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
+
+      <div className="h-48 overflow-hidden">
+        <img
+          src="/lovable-uploads/webdev-certificate.jpg"
+          alt="Web Development Certificate"
+          className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+        />
+      </div>
+
+      <CardHeader>
+        <CardTitle className="text-purple-400">
+          WORKSHOP
+        </CardTitle>
+        <CardDescription className="text-gray-400">
+          KONGU ENGINEERING COLLEGE, ERODE
+        </CardDescription>
+      </CardHeader>
+
+      <CardContent>
+        <p className="text-gray-300 text-sm">
+          Hybrid sustainable medical waste management system: A sustainable approach for medical waste recycling 
+        </p>
+      </CardContent>
+    </Card>
+    <Card className="bg-black overflow-hidden hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
+
+  <div className="h-48 overflow-hidden">
+    <img
+      src="/lovable-uploads/hackathon.jpg"
+      alt="Hackathon Certificate"
+      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+    />
+  </div>
+
+  <CardHeader>
+    <CardTitle className="text-purple-400">
+      24 HOURS HACKATHON
+    </CardTitle>
+    <CardDescription className="text-gray-400">
+      KPR COLLEGE OF ENGINEERING, COIMBATORE
+    </CardDescription>
+  </CardHeader>
+
+  <CardContent>
+    <p className="text-gray-300 text-sm">
+      Participated in a 24-hour hackathon and developed a Sports Court Booking Application. Gained hands-on experience in real-time problem solving, teamwork, and rapid product development under pressure.
+    </p>
+  </CardContent>
+</Card>
+
+
+<Card className="bg-black overflow-hidden hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
+
+  <div className="h-48 overflow-hidden">
+    <img
+      src="/lovable-uploads/internship.jpg"
+      alt="Internship Certificate"
+      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+    />
+  </div>
+
+  <CardHeader>
+    <CardTitle className="text-purple-400">
+      WEB DEVELOPMENT INTERNSHIP
+    </CardTitle>
+    <CardDescription className="text-gray-400">
+      Odugaa Tech
+    </CardDescription>
+  </CardHeader>
+
+  <CardContent>
+    <p className="text-gray-300 text-sm">
+      Completed internship in Web Development domain, where I worked on modern frontend technologies and developed responsive web applications while gaining real-world industry experience.
+    </p>
+  </CardContent>
+</Card>
+
+
+<Card className="bg-black overflow-hidden hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
+
+  <div className="h-48 overflow-hidden">
+    <img
+      src="/lovable-uploads/club.jpg"
+      alt="DOS Club Member"
+      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+    />
+  </div>
+
+  <CardHeader>
+    <CardTitle className="text-purple-400">
+      DOS CLUB MEMBER
+    </CardTitle>
+    <CardDescription className="text-gray-400">
+      Selected Member (Pre-Final Year Assessment)
+    </CardDescription>
+  </CardHeader>
+
+  <CardContent>
+    <p className="text-gray-300 text-sm">
+      Selected as one of the 40 members through assessment among pre-final year students. Actively involved in technical activities, peer learning, and skill development initiatives.
+    </p>
+  </CardContent>
+</Card>
+
+  </div>
+</Section>
 
       {/* Contact Section */}
 <Section id="contact" className="bg-transparent">
@@ -257,10 +500,10 @@ const Index = () => {
           <Mail className="w-5 h-5" /> brindhasuresh031@gmail.com
         </p>
         <p className="flex items-center gap-2 hover:text-purple-600 transition-colors text-gray-300">
-          <Phone className="w-5 h-5" /> +91 98122 51784
+          <Phone className="w-5 h-5" /> +91 8122 51784
         </p>
         <p className="flex items-center gap-2 hover:text-purple-600 transition-colors text-gray-300">
-          <MapPin className="w-5 h-5" /> Valluvar Street, S.Papparapatty, Attayampatty
+          <MapPin className="w-5 h-5" /> Valluvar Street, S.Papparapatty, Attayampatty, Salem
         </p>
 
         {/* GitHub & LinkedIn Links */}
